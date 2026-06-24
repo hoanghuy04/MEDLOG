@@ -140,6 +140,8 @@ export default function Step2Screen({
                 <option value="40' GP">40' GP (Thường)</option>
                 <option value="40' HC">40' HC (Cao)</option>
                 <option value="45' HC">45' HC (Siêu cao)</option>
+                <option value="2x 20' GP">2x 20' GP</option>
+                <option value="2x 20'">2x 20'</option>
               </select>
             </div>
 
