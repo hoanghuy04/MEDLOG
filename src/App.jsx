@@ -71,7 +71,7 @@ function App() {
 
   // Login States
   const [username, setUsername] = useState('admin');
-  const [password, setPassword] = useState('meglog2026');
+  const [password, setPassword] = useState('vtos2026');
   const [showPassword, setShowPassword] = useState(false);
   const [loginError, setLoginError] = useState('');
 
@@ -136,7 +136,7 @@ function App() {
       setLoginError('Vui lòng điền đầy đủ tài khoản và mật khẩu.');
       return;
     }
-    if (username === 'admin' && password === 'meglog2026') {
+    if (username === 'admin' && password === 'vtos2026') {
       setIsLoggedIn(true);
       setLoginError('');
       navigateTo('home');
@@ -262,7 +262,7 @@ function App() {
   const logout = () => {
     setIsLoggedIn(false);
     setUsername('admin');
-    setPassword('meglog2026');
+    setPassword('vtos2026');
     setExteriorImages(Array(10).fill(null));
     setInteriorImages([]);
     setFormData({ ...INITIAL_FORM });

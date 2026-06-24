@@ -25,7 +25,7 @@ export default function SuccessScreen({
 
         <div className="space-y-1">
           <h3 className="text-base font-black text-slate-900">GỬI BÁO CÁO THÀNH CÔNG!</h3>
-          <p className="text-xs text-slate-400">Dữ liệu giám định đã được đồng bộ lên hệ thống MEGLOG</p>
+          <p className="text-xs text-slate-400">Dữ liệu giám định đã được đồng bộ lên hệ thống VTOS</p>
         </div>
 
         <div className="bg-white p-4 rounded-xl border border-slate-200 text-left">

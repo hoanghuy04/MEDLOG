@@ -5,7 +5,7 @@ export default function SystemBar({ wifiConnected, currentTime }) {
   return (
     <div className="w-full h-8 bg-slate-950 text-slate-400 px-4 flex items-center justify-between text-xs select-none flex-shrink-0">
       <div className="flex items-center gap-1.5">
-        <span className="font-extrabold text-slate-200 tracking-wider">MEGLOG Tablet</span>
+        <span className="font-extrabold text-slate-200 tracking-wider">VTOS Tablet</span>
         <span className="bg-emerald-950 text-emerald-400 text-[8px] font-black px-1.5 py-0.5 rounded border border-emerald-900/50">
           DEPO_04
         </span>

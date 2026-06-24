@@ -16,9 +16,9 @@ export default function LoginScreen({
       <div className="w-full max-w-sm bg-white p-6 rounded-2xl border border-slate-200 shadow-sm text-left">
         <div className="text-center mb-6">
           <div className="inline-flex items-center justify-center w-12 h-12 rounded-xl bg-emerald-50 text-emerald-600 mb-2.5">
-            <span className="text-lg font-black tracking-wider">M</span>
+            <span className="text-lg font-black tracking-wider">V</span>
           </div>
-          <h2 className="text-lg font-black text-slate-900 tracking-tight">MEGLOG SYSTEM</h2>
+          <h2 className="text-lg font-black text-slate-900 tracking-tight">VTOS SYSTEM</h2>
           <p className="text-xs text-slate-400 mt-1 uppercase font-bold tracking-wider">GIÁM ĐỊNH CONTAINER</p>
         </div>
 
@@ -74,7 +74,7 @@ export default function LoginScreen({
           type="button"
           onClick={() => {
             setUsername('admin');
-            setPassword('meglog2026');
+            setPassword('vtos2026');
             setTimeout(() => {
               // Trigger click simulated by fake login submit
               const mockEvent = { preventDefault: () => {} };

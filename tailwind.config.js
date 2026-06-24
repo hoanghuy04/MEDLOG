@@ -7,8 +7,8 @@ export default {
   theme: {
     extend: {
       colors: {
-        meglogReady: '#10B981',
-        meglogFault: '#EF4444',
+        vtosReady: '#10B981',
+        vtosFault: '#EF4444',
       }
     },
   },
