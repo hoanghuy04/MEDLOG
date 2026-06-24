@@ -14,37 +14,26 @@ import CameraOverviewModal from './components/CameraOverviewModal';
 import ReportDetailModal from './components/ReportDetailModal';
 import ImageEditScreen from './components/ImageEditScreen';
 
+import goc1 from './assets/cameras/goc_1.jpg';
+import goc2 from './assets/cameras/goc_2.jpg';
+import goc3 from './assets/cameras/goc_3.jpg';
+import goc4 from './assets/cameras/goc_4.jpg';
+import goc5 from './assets/cameras/goc_5.jpg';
+import goc6 from './assets/cameras/goc_6.jpg';
+import goc7 from './assets/cameras/goc_7.jpg';
+import goc8 from './assets/cameras/goc_8.jpg';
+import goc9 from './assets/cameras/goc_9.jpg';
+import goc10 from './assets/cameras/goc_10.jpg';
+
 // Pre-defined Container Images from Unsplash for realistic mockup
 const CONTAINER_IMAGES = {
-  main: "https://images.unsplash.com/photo-1578575437130-527eed3abbec?auto=format&fit=crop&w=800&q=80",
-  yard: "https://images.unsplash.com/photo-1586528116311-ad8dd3c8310d?auto=format&fit=crop&w=800&q=80",
-  port: "https://images.unsplash.com/photo-1494412574643-ff11b0a5c1c3?auto=format&fit=crop&w=800&q=80",
-  warehouse: "https://images.unsplash.com/photo-1524522173746-f628baad3644?auto=format&fit=crop&w=800&q=80",
+  main: goc4,
+  yard: goc1,
+  port: goc2,
+  warehouse: goc3,
   interiorEmpty: "https://images.unsplash.com/photo-1504917595217-d4dc5ebe6122?auto=format&fit=crop&w=800&q=80",
-  cams: [
-    "https://images.unsplash.com/photo-1586528116311-ad8dd3c8310d?auto=format&fit=crop&w=200&q=80",
-    "",
-    "https://images.unsplash.com/photo-1494412574643-ff11b0a5c1c3?auto=format&fit=crop&w=200&q=80",
-    "https://images.unsplash.com/photo-1578575437130-527eed3abbec?auto=format&fit=crop&w=200&q=80",
-    "https://images.unsplash.com/photo-1518241353330-0f7941c2d9b5?auto=format&fit=crop&w=200&q=80",
-    "https://images.unsplash.com/photo-1586528116311-ad8dd3c8310d?auto=format&fit=crop&w=200&q=80",
-    "https://images.unsplash.com/photo-1524522173746-f628baad3644?auto=format&fit=crop&w=200&q=80",
-    "https://images.unsplash.com/photo-1578575437130-527eed3abbec?auto=format&fit=crop&w=200&q=80",
-    "https://images.unsplash.com/photo-1586528116311-ad8dd3c8310d?auto=format&fit=crop&w=200&q=80",
-    "https://images.unsplash.com/photo-1524522173746-f628baad3644?auto=format&fit=crop&w=200&q=80",
-  ],
-  angles: [
-    "https://images.unsplash.com/photo-1586528116311-ad8dd3c8310d?auto=format&fit=crop&w=400&q=80",
-    "https://images.unsplash.com/photo-1578575437130-527eed3abbec?auto=format&fit=crop&w=400&q=80",
-    "https://images.unsplash.com/photo-1494412574643-ff11b0a5c1c3?auto=format&fit=crop&w=400&q=80",
-    "https://images.unsplash.com/photo-1524522173746-f628baad3644?auto=format&fit=crop&w=400&q=80",
-    "https://images.unsplash.com/photo-1518241353330-0f7941c2d9b5?auto=format&fit=crop&w=400&q=80",
-    "https://images.unsplash.com/photo-1586528116311-ad8dd3c8310d?auto=format&fit=crop&w=400&q=80",
-    "https://images.unsplash.com/photo-1578575437130-527eed3abbec?auto=format&fit=crop&w=400&q=80",
-    "https://images.unsplash.com/photo-1586528116311-ad8dd3c8310d?auto=format&fit=crop&w=400&q=80",
-    "https://images.unsplash.com/photo-1494412574643-ff11b0a5c1c3?auto=format&fit=crop&w=400&q=80",
-    "https://images.unsplash.com/photo-1524522173746-f628baad3644?auto=format&fit=crop&w=400&q=80",
-  ]
+  cams: [goc1, goc2, goc3, goc4, goc5, goc6, goc7, goc8, goc9, goc10],
+  angles: [goc1, goc2, goc3, goc4, goc5, goc6, goc7, goc8, goc9, goc10]
 };
 
 const INITIAL_FORM = {
@@ -80,7 +69,7 @@ function App() {
   const [camGridAllOpen, setCamGridAllOpen] = useState(false);
   const [cameras] = useState([
     { id: 1, name: 'CAM 1', status: 'online', url: CONTAINER_IMAGES.cams[0] },
-    { id: 2, name: 'CAM 2', status: 'offline', url: null },
+    { id: 2, name: 'CAM 2', status: 'offline', url: CONTAINER_IMAGES.cams[1] },
     { id: 3, name: 'CAM 3', status: 'online', url: CONTAINER_IMAGES.cams[2] },
     { id: 4, name: 'CAM 4', status: 'active', url: CONTAINER_IMAGES.cams[3] },
     { id: 5, name: 'CAM 5', status: 'online', url: CONTAINER_IMAGES.cams[4] },
