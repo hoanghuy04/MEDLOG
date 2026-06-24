@@ -1,5 +1,5 @@
 import React, { useEffect, useRef, useState } from 'react';
-import { ArrowLeft, Zap, Grid, RotateCw, Camera, CameraOff } from 'lucide-react';
+import { ArrowLeft, Grid, RotateCw, Camera, CameraOff } from 'lucide-react';
 
 export default function CameraScreen({
   capturingSlotIndex,
@@ -13,9 +13,7 @@ export default function CameraScreen({
   CONTAINER_IMAGES
 }) {
   const videoRef = useRef(null);
-  const [isFlashOn, setIsFlashOn] = useState(false);
   const [cameraError, setCameraError] = useState(false);
-  const [telemetry, setTelemetry] = useState({ lvl: 0.82, dst: 4.5 });
 
   const getCameraTitle = () => {
     if (typeof capturingSlotIndex === 'string') {
@@ -38,28 +36,18 @@ export default function CameraScreen({
     return CONTAINER_IMAGES.angles[idx % CONTAINER_IMAGES.angles.length];
   };
 
-  // Fluctuating telemetry simulation
-  useEffect(() => {
-    const interval = setInterval(() => {
-      setTelemetry(prev => ({
-        lvl: Number((prev.lvl + (Math.random() * 0.08 - 0.04)).toFixed(2)),
-        dst: Number((prev.dst + (Math.random() * 0.2 - 0.1)).toFixed(1))
-      }));
-    }, 400);
-    return () => clearInterval(interval);
-  }, []);
-
   // Initialize browser camera stream
   useEffect(() => {
     let activeStream = null;
     async function startCamera() {
       setCameraError(false);
       try {
+        if (!navigator.mediaDevices || !navigator.mediaDevices.getUserMedia) {
+          throw new Error("API getUserMedia không khả dụng");
+        }
         const constraints = {
           video: {
-            facingMode: cameraFacing === 'rear' ? 'environment' : 'user',
-            width: { ideal: 1280 },
-            height: { ideal: 720 }
+            facingMode: cameraFacing === 'rear' ? 'environment' : 'user'
           },
           audio: false
         };
@@ -123,12 +111,6 @@ export default function CameraScreen({
         </div>
         <div className="flex items-center gap-1.5">
           <button 
-            onClick={() => setIsFlashOn(!isFlashOn)}
-            className={`p-1.5 rounded-full ${isFlashOn ? 'text-yellow-400 bg-slate-900' : 'text-slate-400'}`}
-          >
-            <Zap className="w-4 h-4" fill={isFlashOn ? "currentColor" : "none"} />
-          </button>
-          <button 
             onClick={() => setShowCameraGrid(!showCameraGrid)}
             className={`p-1.5 rounded-full ${showCameraGrid ? 'text-emerald-400 bg-slate-900' : 'text-slate-400'}`}
           >
@@ -157,12 +139,13 @@ export default function CameraScreen({
             ref={videoRef}
             autoPlay
             playsInline
+            muted
             className="w-full h-full object-cover transform scale-x-100"
           />
         )}
 
         {/* Flash Effect */}
-        {(isFlashActive || (isFlashOn && isFlashActive)) && (
+        {isFlashActive && (
           <div className="absolute inset-0 bg-white z-40 transition-all duration-75 pointer-events-none"></div>
         )}
 
@@ -191,21 +174,8 @@ export default function CameraScreen({
         </div>
 
         {/* Timestamp on camera */}
-        <div className="absolute bottom-12 right-3 bg-black/40 px-2 py-0.5 rounded text-[8px] font-mono tracking-widest text-gray-300 z-10">
+        <div className="absolute bottom-4 right-3 bg-black/40 px-2 py-0.5 rounded text-[8px] font-mono tracking-widest text-gray-300 z-10">
           {new Date().toLocaleDateString('vi-VN')} {new Date().toLocaleTimeString('vi-VN')}
-        </div>
-
-        {/* 3. PHYSICAL TELEMETRY OVERLAY */}
-        <div className="absolute bottom-0 left-0 right-0 z-10 flex justify-around items-center py-2 bg-black/60 backdrop-blur-sm border-t border-white/10 text-[10px]">
-          <div className="flex items-center gap-1">
-            <span className="text-emerald-400">⚡ LVL:</span>
-            <span className="font-mono font-bold">{telemetry.lvl.toFixed(2)}°</span>
-          </div>
-          <div className="w-[1px] h-3 bg-white/20"></div>
-          <div className="flex items-center gap-1">
-            <span className="text-emerald-400">📍 DST:</span>
-            <span className="font-mono font-bold">{telemetry.dst.toFixed(1)}m</span>
-          </div>
         </div>
       </div>
 
